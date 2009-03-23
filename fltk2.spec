@@ -1,6 +1,9 @@
 %define		_name		fltk
 %define		_snap		r6671
 %define		_version	2.0
+# Conditional build:
+%bcond_with	cairo	# without cairo support
+#
 Summary:	Fast Light Tool Kit 2.x
 Summary(pl.UTF-8):	FLTK - "lekki" X11 toolkit wersja 2.x
 Summary(pt_BR.UTF-8):	Interface gráfica em C++ para X, OpenGL e Windows
@@ -13,7 +16,9 @@ Source0:	http://ftp.easysw.com/pub/fltk/snapshots/%{_name}-%{_version}.x-%{_snap
 # Source0-md5:	6bcef5fd51eb3bc4dd0702f3ae6da6ba
 URL:		http://www.fltk.org/
 BuildRequires:	autoconf
-BuildRequires:	cairo-devel
+# don't build with cairo support if you're planning to use fltk2 with
+# dillo 2.x
+%{?with_cairo:BuildRequires:	cairo-devel}
 BuildRequires:	libstdc++-devel
 BuildRequires:	rpmbuild(macros) >= 1.315
 BuildRequires:	xorg-lib-libX11-devel
@@ -86,7 +91,7 @@ Bibliotecas estáticas para o FLTK2.
 %{__sed} -i -e '/fltk2-config/s/^\t/\t$(DESTDIR)/' fluid/Makefile
 %{__autoconf}
 %configure \
-	--enable-cairo \
+	--%{?with_cairo:en}%{!?with_cairo:dis}able-cairo \
 	--enable-shared \
 	--enable-threads \
 	--enable-xinerama \
