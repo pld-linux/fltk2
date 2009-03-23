@@ -1,0 +1,26 @@
+--- configure.old	2009-03-16 23:50:29.494706921 +0100
++++ configure	2009-03-16 23:51:12.346705762 +0100
+@@ -1921,8 +1921,8 @@ if test x$enable_shared = xyes; then
+             fi
+ 	    ;;
+ 	Linux* | *BSD*)
+-#           DSOCOMMAND="\$(CXX) -Wl,-soname,\$@ \$(LDLIBS) -shared -fPIC $DEBUGFLAG -o"
+-            DSOCOMMAND="\$(CXX) \$(LDLIBS) -shared -fPIC $DEBUGFLAG -o"
++            DSOCOMMAND="\$(CXX) -Wl,-soname,\$@ \$(LDLIBS) -shared -fPIC $DEBUGFLAG -o"
++#           DSOCOMMAND="\$(CXX) \$(LDLIBS) -shared -fPIC $DEBUGFLAG -o"
+ 	    if test "$libdir" != "/usr/lib"; then
+ 		    DSOLINK="-Wl,-rpath,$libdir"
+             fi
+--- configure.in.old	2009-03-16 23:50:33.487708434 +0100
++++ configure.in	2009-03-16 23:50:57.663706829 +0100
+@@ -184,8 +184,8 @@ if test x$enable_shared = xyes; then
+             fi
+ 	    ;;
+ 	Linux* | *BSD*)
+-#           DSOCOMMAND="\$(CXX) -Wl,-soname,\$@ \$(LDLIBS) -shared -fPIC $DEBUGFLAG -o"
+-            DSOCOMMAND="\$(CXX) \$(LDLIBS) -shared -fPIC $DEBUGFLAG -o"
++            DSOCOMMAND="\$(CXX) -Wl,-soname,\$@ \$(LDLIBS) -shared -fPIC $DEBUGFLAG -o"
++#           DSOCOMMAND="\$(CXX) \$(LDLIBS) -shared -fPIC $DEBUGFLAG -o"
+ 	    ;;
+ 	AIX*)
+ 	    DSOSUFFIX="_s.a"

@@ -1,0 +1,12 @@
+--- configure.in	2008-08-05 00:53:30.000000000 +0200
++++ configure.in.new	2008-12-22 12:09:24.030693986 +0100
+@@ -186,9 +186,6 @@ if test x$enable_shared = xyes; then
+ 	Linux* | *BSD*)
+ #           DSOCOMMAND="\$(CXX) -Wl,-soname,\$@ \$(LDLIBS) -shared -fPIC $DEBUGFLAG -o"
+             DSOCOMMAND="\$(CXX) \$(LDLIBS) -shared -fPIC $DEBUGFLAG -o"
+-	    if test "$libdir" != "/usr/lib"; then
+-		    DSOLINK="-Wl,-rpath,$libdir"
+-            fi
+ 	    ;;
+ 	AIX*)
+ 	    DSOSUFFIX="_s.a"
