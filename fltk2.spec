@@ -18,6 +18,7 @@ URL:		http://www.fltk.org/
 BuildRequires:	autoconf
 # don't build with cairo support if you're planning to use fltk2 with
 # dillo 2.x
+BuildRequires:	Mesa-libGLU-devel
 %{?with_cairo:BuildRequires:	cairo-devel}
 BuildRequires:	libstdc++-devel
 BuildRequires:	rpmbuild(macros) >= 1.315
