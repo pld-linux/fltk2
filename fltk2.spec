@@ -14,6 +14,8 @@ License:	LGPL with amendments (see COPYING)
 Group:		X11/Libraries
 Source0:	http://ftp.easysw.com/pub/fltk/snapshots/%{_name}-%{_version}.x-%{_snap}.tar.bz2
 # Source0-md5:	6bcef5fd51eb3bc4dd0702f3ae6da6ba
+Patch0:		%{name}-rpath.patch
+Patch1:		%{name}-soname.patch
 URL:		http://www.fltk.org/
 BuildRequires:	autoconf
 # don't build with cairo support if you're planning to use fltk2 with
@@ -87,6 +89,8 @@ Bibliotecas estáticas para o FLTK2.
 
 %prep
 %setup -q -n %{_name}-%{_version}.x-%{_snap}
+%patch0 -p0
+%patch1 -p0
 
 %build
 %{__sed} -i -e '/fltk2-config/s/^\t/\t$(DESTDIR)/' fluid/Makefile
