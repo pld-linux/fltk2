@@ -3,15 +3,13 @@
 %define		_version	2.0
 Summary:	Fast Light Tool Kit 2.x
 Summary(pl.UTF-8):	FLTK - "lekki" X11 toolkit wersja 2.x
-Summary(pt_BR.UTF-8):	Interface gráfica em C++ para X, OpenGL e
-Windows
+Summary(pt_BR.UTF-8):	Interface gráfica em C++ para X, OpenGL e Windows
 Name:		fltk2
 Version:	2.0.%{_snap}
 Release:	1
 License:	LGPL with amendments (see COPYING)
 Group:		X11/Libraries
-Source0:
-http:		//ftp.easysw.com/pub/fltk/snapshots/%{_name}-%{_version}.x-%{_snap}.tar.bz2
+Source0:	http://ftp.easysw.com/pub/fltk/snapshots/%{_name}-%{_version}.x-%{_snap}.tar.bz2
 # Source0-md5:	6bcef5fd51eb3bc4dd0702f3ae6da6ba
 URL:		http://www.fltk.org/
 BuildRequires:	autoconf
@@ -100,6 +98,7 @@ Bibliotecas estáticas para o FLTK2.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 install -d $RPM_BUILD_ROOT%{_mandir}/man{1,3}
 
 %{__make} install \
@@ -107,8 +106,7 @@ install -d $RPM_BUILD_ROOT%{_mandir}/man{1,3}
 	DESTDIR=$RPM_BUILD_ROOT
 
 # install man by hand
-%{__mv} documentation/fltk2-config.man
-%$RPM_BUILD_ROOT%{_mandir}/man1/fltk2-config.1
+%{__mv} documentation/fltk2-config.man $RPM_BUILD_ROOT%{_mandir}/man1/fltk2-config.1
 %{__mv} documentation/fluid.man $RPM_BUILD_ROOT%{_mandir}/man1/fluid.1
 %{__mv} documentation/fltk.man $RPM_BUILD_ROOT%{_mandir}/man3/fltk.3
 
