@@ -18,9 +18,9 @@ Patch0:		%{name}-rpath.patch
 Patch1:		%{name}-soname.patch
 URL:		http://www.fltk.org/
 BuildRequires:	autoconf
+BuildRequires:	Mesa-libGLU-devel
 # don't build with cairo support if you're planning to use fltk2 with
 # dillo 2.x
-BuildRequires:	Mesa-libGLU-devel
 %{?with_cairo:BuildRequires:	cairo-devel}
 BuildRequires:	libstdc++-devel
 BuildRequires:	rpmbuild(macros) >= 1.315
@@ -122,10 +122,10 @@ install -d $RPM_BUILD_ROOT%{_mandir}/man{1,3}
 
 # broken so linking, the idea stolen from
 # https://bugzilla.redhat.com/show_bug.cgi?id=477683
-ln -fs libfltk2.so.2.0 $RPM_BUILD_ROOT%{_libdir}/libfltk2.so
-ln -fs libfltk2_gl.so.2.0 $RPM_BUILD_ROOT%{_libdir}/libfltk2_gl.so
-ln -fs libfltk2_glut.so.2.0 $RPM_BUILD_ROOT%{_libdir}/libfltk2_glut.so
-ln -fs libfltk2_images.so.2.0 $RPM_BUILD_ROOT%{_libdir}/libfltk2_images.so
+ln -fs $RPM_BUILD_ROOT%{_libdir}/libfltk2.so.2.0 libfltk2.so
+ln -fs $RPM_BUILD_ROOT%{_libdir}/libfltk2_gl.so.2.0 libfltk2_gl.so
+ln -fs $RPM_BUILD_ROOT%{_libdir}/libfltk2_glut.so.2.0 libfltk2_glut.so
+ln -fs $RPM_BUILD_ROOT%{_libdir}/libfltk2_images.so.2.0 libfltk2_images.so
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -146,10 +146,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc documentation/*.{html,gif,jpg}
 %attr(755,root,root) %{_bindir}/fltk2-config
 %attr(755,root,root) %{_bindir}/fluid2
-%attr(755,root,root) %ghost %{_libdir}/libfltk2.so
-%attr(755,root,root) %ghost %{_libdir}/libfltk2_gl.so
-%attr(755,root,root) %ghost %{_libdir}/libfltk2_glut.so
-%attr(755,root,root) %ghost %{_libdir}/libfltk2_images.so
+%attr(755,root,root) %{_libdir}/libfltk2.so
+%attr(755,root,root) %{_libdir}/libfltk2_gl.so
+%attr(755,root,root) %{_libdir}/libfltk2_glut.so
+%attr(755,root,root) %{_libdir}/libfltk2_images.so
 %dir %{_includedir}/fltk
 %dir %{_includedir}/fltk/compat
 %dir %{_includedir}/fltk/compat/FL
