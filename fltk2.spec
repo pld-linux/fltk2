@@ -122,10 +122,11 @@ install -d $RPM_BUILD_ROOT%{_mandir}/man{1,3}
 
 # broken so linking, the idea stolen from
 # https://bugzilla.redhat.com/show_bug.cgi?id=477683
-ln -fs $RPM_BUILD_ROOT%{_libdir}/libfltk2.so.2.0 libfltk2.so
-ln -fs $RPM_BUILD_ROOT%{_libdir}/libfltk2_gl.so.2.0 libfltk2_gl.so
-ln -fs $RPM_BUILD_ROOT%{_libdir}/libfltk2_glut.so.2.0 libfltk2_glut.so
-ln -fs $RPM_BUILD_ROOT%{_libdir}/libfltk2_images.so.2.0 libfltk2_images.so
+ln -fs $(basename $RPM_BUILD_ROOT%{_libdir}/libfltk2.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libfltk2.so
+ln -fs $(basename $RPM_BUILD_ROOT%{_libdir}/libfltk2.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libfltk2.so
+ln -fs $(basename $RPM_BUILD_ROOT%{_libdir}/libfltk2_gl.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libfltk2_gl.so
+ln -fs $(basename $RPM_BUILD_ROOT%{_libdir}/libfltk2_glut.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libfltk2_glut.so
+ln -fs $(basename $RPM_BUILD_ROOT%{_libdir}/libfltk2_images.so.*.*) $RPM_BUILD_ROOT%{_libdir}/libfltk2_images.so
 
 %clean
 rm -rf $RPM_BUILD_ROOT
