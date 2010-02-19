@@ -1,5 +1,5 @@
 %define		_name		fltk
-%define		_snap		r6793
+%define		_snap		r6970
 %define		_version	2.0
 # Conditional build:
 %bcond_with	cairo	# without cairo support
@@ -13,11 +13,11 @@ Release:	0.%{_snap}.1
 License:	LGPL with amendments (see COPYING)
 Group:		X11/Libraries
 Source0:	http://ftp.easysw.com/pub/fltk/snapshots/%{_name}-%{_version}.x-%{_snap}.tar.bz2
-# Source0-md5:	3e413b2063bdb3d1a6ad4832458d885d
+# Source0-md5:	f78976d0ba1a5c845e14f4df96d580a0
 Patch0:		%{name}-rpath.patch
 Patch1:		%{name}-soname.patch
 Patch2:		%{name}-gcc43.patch
-Patch3:		%{name}-glibc2.10-scandir.patch
+Patch3:		%{name}-libpng.patch
 URL:		http://www.fltk.org/
 BuildRequires:	autoconf
 BuildRequires:	Mesa-libGLU-devel
@@ -94,10 +94,9 @@ Bibliotecas estáticas para o FLTK2.
 %patch0 -p0
 %patch1 -p0
 %patch2 -p1
-%patch3 -p0
+%patch3 -p1
 
 %build
-%{__sed} -i -e '/fltk2-config/s/^\t/\t$(DESTDIR)/' fluid/Makefile
 %{__autoconf}
 %configure \
 	--%{?with_cairo:en}%{!?with_cairo:dis}able-cairo \
