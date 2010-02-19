@@ -19,17 +19,20 @@ Patch1:		%{name}-soname.patch
 Patch2:		%{name}-gcc43.patch
 Patch3:		%{name}-libpng.patch
 URL:		http://www.fltk.org/
-BuildRequires:	autoconf
 BuildRequires:	Mesa-libGLU-devel
+BuildRequires:	autoconf
 # don't build with cairo support if you're planning to use fltk2 with
 # dillo 2.x
 %{?with_cairo:BuildRequires:	cairo-devel}
+BuildRequires:	libjpeg-devel
+BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	rpmbuild(macros) >= 1.315
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xorg-lib-libXext-devel
+BuildRequires:	xorg-lib-libXi-devel
 BuildRequires:	xorg-lib-libXinerama-devel
-BuildRequires:	xorg-util-makedepend
+BuildRequires:	zlib-devel
 Obsoletes:	fltk
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
