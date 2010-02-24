@@ -1,3 +1,6 @@
+# TODO:
+#	- tons of "Unresolved symbols found in: ..."
+#
 %define		_name		fltk
 %define		_snap		r6970
 %define		_version	2.0
@@ -9,7 +12,7 @@ Summary(pl.UTF-8):	FLTK - "lekki" X11 toolkit wersja 2.x
 Summary(pt_BR.UTF-8):	Interface gráfica em C++ para X, OpenGL e Windows
 Name:		fltk2
 Version:	2.0
-Release:	0.%{_snap}.1
+Release:	0.%{_snap}.2
 License:	LGPL with amendments (see COPYING)
 Group:		X11/Libraries
 Source0:	http://ftp.easysw.com/pub/fltk/snapshots/%{_name}-%{_version}.x-%{_snap}.tar.bz2
