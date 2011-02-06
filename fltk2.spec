@@ -1,12 +1,12 @@
 # TODO:
 #	- tons of "Unresolved symbols found in: ..."
 #
+# Conditional build:
+%bcond_with	cairo	# without cairo support
+
 %define		_name		fltk
 %define		_snap		r6970
 %define		_version	2.0
-# Conditional build:
-%bcond_with	cairo	# without cairo support
-#
 Summary:	Fast Light Tool Kit 2.x
 Summary(pl.UTF-8):	FLTK - "lekki" X11 toolkit wersja 2.x
 Summary(pt_BR.UTF-8):	Interface gráfica em C++ para X, OpenGL e Windows
